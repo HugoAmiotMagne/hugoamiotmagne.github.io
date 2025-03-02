@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("nextBtn");
     const projects = document.querySelectorAll(".project-item");
     let index = 0;
+    const visibleProjects = 3;
 
     function updateCarousel() {
-        carouselContainer.style.transform = `translateX(${-(index * 100)}%)`;
+        const offset = -(index * (100 / visibleProjects)) + "%";
+        carouselContainer.style.transform = `translateX(${offset})`;
     }
 
     nextBtn.addEventListener("click", function () {
@@ -18,4 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         index = (index - 1 + projects.length) % projects.length;
         updateCarousel();
     });
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
 });
