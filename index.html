@@ -200,17 +200,13 @@
             }
 
             nextBtn.addEventListener("click", function () {
-                if (index < projects.length - visibleProjects) {
-                    index++;
-                    updateCarousel();
-                }
+                index = (index + 1) % projects.length;
+                updateCarousel();
             });
 
             prevBtn.addEventListener("click", function () {
-                if (index > 0) {
-                    index--;
-                    updateCarousel();
-                }
+                index = (index - 1 + projects.length) % projects.length;
+                updateCarousel();
             });
         });
     </script>
@@ -223,6 +219,12 @@
         #projectsWrapper {
             display: flex;
             transition: transform 0.5s ease-in-out;
+        }
+
+        #prevBtn, #nextBtn {
+            z-index: 10;
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </body>
