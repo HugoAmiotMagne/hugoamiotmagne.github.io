@@ -1,10 +1,33 @@
+#carouselContainer {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
 #projectsWrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: max-content; 
+    width: max-content; /* Ajuste la largeur pour les projets */
 }
 
-#carouselContainer {
-    overflow: hidden;
-    width: 100%; 
+.project-item {
+    flex: 0 0 auto;
+    width: 300px; /* Ajuste selon la taille de tes cartes */
+    margin-right: 15px; /* Espacement entre les projets */
 }
+
+/* Positionnement des flèches */
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
