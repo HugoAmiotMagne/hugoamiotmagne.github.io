@@ -4,15 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("nextBtn");
     const projects = document.querySelectorAll(".project-item");
 
-    let index = 0; // Position actuelle
-    const projectWidth = projects[0].offsetWidth + 20; // Largeur du projet + marge (ajuste selon ton CSS)
+    let index = 0; 
+    const projectWidth = projects[0].offsetWidth + 20;
     const totalProjects = projects.length;
 
     function updateCarousel() {
         const offset = -(index * projectWidth) + "px";
         carouselContainer.style.transform = `translateX(${offset})`;
 
-        // Désactiver le bouton si on est au début ou à la fin
         prevBtn.style.opacity = index === 0 ? "0.5" : "1";
         nextBtn.style.opacity = index === totalProjects - 1 ? "0.5" : "1";
     }
@@ -31,6 +30,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Initialisation correcte au chargement
     updateCarousel();
 });
