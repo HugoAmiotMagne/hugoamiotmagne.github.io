@@ -21,11 +21,11 @@
 
 /* Positionnement des flèches */
 #prevBtn {
-    left: -40px; /* ↓ Décalé encore plus à gauche */
+    left: -50px; /* ↓ Décalé encore plus à gauche */
 }
 
 #nextBtn {
-    right: -40px; /* ↓ Décalé légèrement pour symétrie */
+    right: -50px; /* ↓ Décalé légèrement pour symétrie */
 }
 
 /* Effet au survol */
