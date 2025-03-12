@@ -4,29 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("nextBtn");
     const projects = document.querySelectorAll(".project-item");
 
-    let index = 0; // Position actuelle du carrousel
-    const projectWidth = projects[0].offsetWidth; // Largeur d'un projet
+    let index = 0; // Position actuelle
+    const projectWidth = projects[0].offsetWidth + 20; // Largeur + marge (ajuste selon ton CSS)
     const totalProjects = projects.length;
-    
+
     function updateCarousel() {
         const offset = -(index * projectWidth) + "px";
         carouselContainer.style.transform = `translateX(${offset})`;
     }
 
     nextBtn.addEventListener("click", function () {
-        if (index < totalProjects - 1) { // Évite de dépasser le dernier projet
+        if (index < totalProjects - 1) { 
             index++;
             updateCarousel();
         }
     });
 
     prevBtn.addEventListener("click", function () {
-        if (index > 0) { // Empêche de reculer avant le premier projet
+        if (index > 0) { 
             index--;
             updateCarousel();
         }
     });
-
-    // Mettre à jour l'année dans le footer
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
 });

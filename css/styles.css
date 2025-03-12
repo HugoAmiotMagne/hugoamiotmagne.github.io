@@ -1,33 +1,48 @@
+/* Container principal du carrousel */
 #carouselContainer {
+    position: relative;
     overflow: hidden;
     width: 100%;
-    position: relative;
 }
 
+/* Wrapper des projets (flexbox pour aligner) */
 #projectsWrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: max-content; /* Ajuste la largeur pour les projets */
+    width: max-content; /* Permet un scroll fluide */
 }
 
+/* Chaque projet */
 .project-item {
     flex: 0 0 auto;
-    width: 300px; /* Ajuste selon la taille de tes cartes */
+    width: 300px; /* Ajuste selon la taille des projets */
     margin-right: 15px; /* Espacement entre les projets */
 }
 
-/* Positionnement des flèches */
-#prevBtn, #nextBtn {
+/* Flèches de navigation */
+.nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 15px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 100;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: background 0.3s;
 }
 
-#prevBtn { left: 10px; }
-#nextBtn { right: 10px; }
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#prevBtn {
+    left: -50px; /* Déplacer la flèche hors des projets */
+}
+
+#nextBtn {
+    right: -50px; /* Déplacer la flèche hors des projets */
+}
