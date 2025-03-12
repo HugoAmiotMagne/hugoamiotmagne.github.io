@@ -1,34 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const carouselContainer = document.getElementById("projectsWrapper");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+    const carousel = document.getElementById("projectsWrapper");
     const projects = document.querySelectorAll(".project-item");
+    let currentIndex = 0;
 
-    let index = 0; 
-    const projectWidth = projects[0].offsetWidth + 20;
-    const totalProjects = projects.length;
+    document.getElementById("nextBtn").addEventListener("click", function () {
+        if (currentIndex < projects.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Revient au début
+        }
+        updateCarousel();
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = projects.length - 1; // Va à la fin
+        }
+        updateCarousel();
+    });
 
     function updateCarousel() {
-        const offset = -(index * projectWidth) + "px";
-        carouselContainer.style.transform = `translateX(${offset})`;
-
-        prevBtn.style.opacity = index === 0 ? "0.5" : "1";
-        nextBtn.style.opacity = index === totalProjects - 1 ? "0.5" : "1";
+        const offset = -currentIndex * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
     }
-
-    nextBtn.addEventListener("click", function () {
-        if (index < totalProjects - 1) { 
-            index++;
-            updateCarousel();
-        }
-    });
-
-    prevBtn.addEventListener("click", function () {
-        if (index > 0) { 
-            index--;
-            updateCarousel();
-        }
-    });
-
-    updateCarousel();
 });
