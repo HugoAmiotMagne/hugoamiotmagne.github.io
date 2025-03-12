@@ -1,27 +1,3 @@
-/* Container principal du carrousel */
-#carouselContainer {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding: 20px 0;
-}
-
-/* Wrapper des projets */
-#projectsWrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: max-content;
-    position: relative;
-    z-index: 5; /* ↓ Mettre un z-index inférieur aux boutons */
-}
-
-/* Chaque projet */
-.project-item {
-    flex: 0 0 auto;
-    width: 300px;
-    margin: 0 10px;
-}
-
 /* Flèches de navigation */
 .nav-btn {
     position: absolute;
@@ -35,20 +11,24 @@
     font-size: 20px;
     border-radius: 50%;
     transition: background 0.3s, opacity 0.3s;
-    z-index: 100; /* ↑ Augmenter le z-index pour qu'elles passent au-dessus */
+    z-index: 1000; /* Assure qu'elles sont bien visibles */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Positionnement des flèches */
 #prevBtn {
-    left: 5px; /* Ajuster pour qu'elle soit bien visible */
+    left: -40px; /* ↓ Décalé encore plus à gauche */
 }
 
 #nextBtn {
-    right: 5px;
+    right: -40px; /* ↓ Décalé légèrement pour symétrie */
 }
 
-/* Flèche semi-transparente quand désactivée */
-.nav-btn:disabled {
-    opacity: 0.3;
-    cursor: default;
+/* Effet au survol */
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
