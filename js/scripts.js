@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("nextBtn");
     const projects = document.querySelectorAll(".project-item");
     let index = 0;
-    const visibleProjects = 3;
+    const visibleProjects = 4;
 
     function updateCarousel() {
         const offset = -(index * (100 / visibleProjects)) + "%";
