@@ -11,7 +11,7 @@
 }
 
 .project-item {
-    min-width: 100%;
+    min-width: calc(100% / 3); /* Affiche 3 projets à la fois */
     flex: 0 0 auto;
 }
 

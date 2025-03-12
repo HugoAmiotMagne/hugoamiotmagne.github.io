@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.getElementById("projectsWrapper");
     const projects = Array.from(document.querySelectorAll(".project-item"));
+    const projectsPerView = 3; // Nombre de projets visibles à la fois
     let currentIndex = 0;
     const totalProjects = projects.length;
 
@@ -51,14 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function slideNext() {
-        currentIndex++;
-        position -= projectWidth;
+        currentIndex += projectsPerView;
+        position -= projectWidth * projectsPerView;
         carousel.style.transform = `translateX(${position}px)`;
     }
 
     function slidePrev() {
-        currentIndex--;
-        position += projectWidth;
+        currentIndex -= projectsPerView;
+        position += projectWidth * projectsPerView;
         carousel.style.transform = `translateX(${position}px)`;
     }
 });
