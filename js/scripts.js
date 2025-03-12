@@ -3,22 +3,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const projects = document.querySelectorAll(".project-item");
+    
     let index = 0;
-    const visibleProjects = 4;
+    const visibleProjects = 3;
+    const totalProjects = projects.length;
+    const projectWidth = projects[0].offsetWidth; 
 
     function updateCarousel() {
-        const offset = -(index * (100 / visibleProjects)) + "%";
+        const offset = -(index * projectWidth) + "px";
         carouselContainer.style.transform = `translateX(${offset})`;
     }
 
     nextBtn.addEventListener("click", function () {
-        index = (index + 1) % projects.length;
-        updateCarousel();
+        if (index < totalProjects - visibleProjects) {
+            index++;
+            updateCarousel();
+        }
     });
 
     prevBtn.addEventListener("click", function () {
-        index = (index - 1 + projects.length) % projects.length;
-        updateCarousel();
+        if (index > 0) {
+            index--;
+            updateCarousel();
+        }
     });
 
     document.getElementById("currentYear").textContent = new Date().getFullYear();
