@@ -3,20 +3,23 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    padding: 20px 0; /* Ajouter un peu d'espace en haut/bas */
 }
 
-/* Wrapper des projets (flexbox pour aligner) */
+/* Wrapper des projets */
 #projectsWrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: max-content; /* Permet un scroll fluide */
+    width: max-content; /* Permet un défilement fluide */
+    position: relative;
+    z-index: 5; /* Assurer que les projets ne passent pas devant les flèches */
 }
 
 /* Chaque projet */
 .project-item {
     flex: 0 0 auto;
     width: 300px; /* Ajuste selon la taille des projets */
-    margin-right: 15px; /* Espacement entre les projets */
+    margin: 0 10px; /* Espacement entre les projets */
 }
 
 /* Flèches de navigation */
@@ -29,20 +32,27 @@
     border: none;
     padding: 15px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 10; /* Mettre au-dessus des projets */
     font-size: 20px;
     border-radius: 50%;
-    transition: background 0.3s;
+    transition: background 0.3s, opacity 0.3s;
 }
 
 .nav-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Positionnement des flèches */
 #prevBtn {
-    left: -50px; /* Déplacer la flèche hors des projets */
+    left: 10px; /* Ajuster pour qu'elle soit bien visible */
 }
 
 #nextBtn {
-    right: -50px; /* Déplacer la flèche hors des projets */
+    right: 10px; /* Ajuster pour qu'elle soit bien visible */
+}
+
+/* Désactiver les boutons en début et fin de liste */
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
 }
