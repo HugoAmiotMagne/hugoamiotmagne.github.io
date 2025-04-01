@@ -12,6 +12,18 @@
             object-fit: cover; /* Assurez-vous que l'image couvre toute la zone sans déformation */
             width: 100%; /* Assurez-vous que l'image prend toute la largeur disponible */
         }
+
+        /* Effet d'ombre sur les cartes */
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Effet de grossissement au survol */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="d-flex flex-column h-100">
