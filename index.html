@@ -11,6 +11,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
@@ -20,11 +23,23 @@
             </div>
         </div>
     </nav>
+
     <main class="flex-shrink-0">
         <section class="py-5 text-center bg-light">
             <div class="container">
                 <h1 class="display-4">Bienvenue sur mon Portfolio</h1>
                 <p class="lead">Découvrez mon parcours, mes projets et mes réalisations.</p>
+            </div>
+        </section>
+
+        <!-- Nouvelle section de présentation -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="mb-4">À propos de moi</h2>
+                <p>Je m'appelle Hugo Amiot Magne, passionné par le développement web et les nouvelles technologies. 
+                Actuellement étudiant en BTS SIO, je me spécialise dans la création de sites web modernes et performants. 
+                Curieux et motivé, je suis toujours à la recherche de nouveaux défis pour améliorer mes compétences 
+                et contribuer à des projets innovants.</p>
             </div>
         </section>
 
@@ -37,9 +52,15 @@
                         <p>Voici mon CV. Vous pouvez le télécharger en cliquant sur le bouton ci-dessous :</p>
                         <a href="CV PRO BTS.pdf" class="btn btn-primary" download="CV PRO BTS.pdf">Télécharger mon CV</a>
                         <div class="d-flex mt-3 gap-3">
-                            <a href="https://github.com/HugoAmiotMagne" target="_blank" class="btn btn-outline-dark"><i class="fab fa-github"></i></a>
-                            <a href="https://linkedin.com/" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin"></i></a>
-                            <a href="mailto:hugo463324@gmail.com" class="btn btn-outline-danger"><i class="fas fa-envelope"></i></a>
+                            <a href="https://github.com/HugoAmiotMagne" target="_blank" class="btn btn-outline-dark">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/" target="_blank" class="btn btn-outline-primary">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:hugo463324@gmail.com" class="btn btn-outline-danger">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -47,7 +68,8 @@
                     <div class="col-md-6">
                         <div class="card">
                             <object data="CV PRO BTS.pdf" type="application/pdf" class="w-100" height="800px">
-                                <p>Votre navigateur ne supporte pas l'affichage de PDF. <a href="CV PRO BTS.pdf">Téléchargez le CV ici</a>.</p>
+                                <p>Votre navigateur ne supporte pas l'affichage de PDF. 
+                                <a href="CV PRO BTS.pdf">Téléchargez le CV ici</a>.</p>
                             </object>
                         </div>
                     </div>
