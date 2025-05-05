@@ -3,93 +3,650 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcours Scolaire - Portfolio</title>
+    <title>Mon Parcours Académique - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:before, .nav-link.active:before {
+            width: 100%;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline:before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background: var(--secondary-color);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 1;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .skill-progress {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            transition: width 1.5s ease;
+        }
+        
+        .school-card {
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .school-img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .school-card:hover .school-img {
+            transform: scale(1.05);
+        }
+        
+        .school-info {
+            padding: 20px;
+        }
+        
+        .badge-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        footer {
+            background: var(--dark-bg);
+            color: white;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Animation des compétences */
+        @media (prefers-reduced-motion: no-preference) {
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+            
+            .animate-on-scroll.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Style pour mobile */
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: 85%;
+                margin-left: 40px !important;
+            }
+            
+            .timeline-year {
+                left: 20px;
+                transform: none;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
 </head>
-<body class="d-flex flex-column h-100 bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<body class="d-flex flex-column h-100">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-code me-2"></i>Mon Portfolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projets.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="parcourscolaire.html">Parcours Scolaire</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projets.html"><i class="fas fa-project-diagram me-1"></i>Projets</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="parcourscolaire.html"><i class="fas fa-graduation-cap me-1"></i>Parcours Scolaire</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Bannière -->
+    <header class="py-5 bg-primary text-white text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">MON PARCOURS ACADÉMIQUE</h1>
+            <p class="lead">Un aperçu de ma formation et de mes compétences acquises</p>
+        </div>
+    </header>
+
     <main class="flex-shrink-0 py-5">
         <div class="container">
-            <h1 class="text-center fw-bold mb-4">MON PARCOURS SCOLAIRE</h1>
-
-            <div class="row mb-5">
-                <div class="col-md-6">
-                    <p class="text-justify">
-                        J'ai commencé mon parcours scolaire au <strong>Collège Jean Auriac</strong>, 
-                        où j'ai passé mon brevet des collèges. Bien que la période ait été marquée par 
-                        le Covid, j'ai réussi à obtenir la <strong>mention Très Bien</strong>. Par la suite, 
-                        j'ai intégré le <strong>Lycée Max Linder</strong>, où j'ai passé mon Bac Général 
-                        avec l'option <strong>Mathématiques</strong> et <strong>Physique</strong>, 
-                        et j'ai obtenu la <strong>mention Assez Bien</strong>.
-                    </p>
-                    <p class="text-justify">
-                        Actuellement, je suis en <strong>seconde année de BTS SIO</strong> au 
-                        <strong>Lycée Elie Vinet</strong>. Au cours de cette formation, j'ai pu 
-                        approfondir mes connaissances en programmation, notamment en développement web, 
-                        ainsi qu'en systèmes et réseaux. Je vais bientôt passer mon BTS, en espérant l'obtenir avec succès.
-                    </p>
-                    <p class="text-justify">
-                        Durant ma formation en BTS, j'ai découvert les langages de base du développement, 
-                        tels que <strong>Python</strong> et <strong>SQL</strong>, ainsi que les bases du 
-                        développement web avec <strong>HTML</strong>, <strong>CSS</strong> et <strong>JavaScript</strong>. 
-                        C'est d'ailleurs grâce à cela que j'ai choisi cette voie. En première année, j'ai revu 
-                        les bases de la programmation et approfondi mes compétences en développement web, tout 
-                        en découvrant les systèmes et réseaux. En janvier, j'ai opté pour l'option 
-                        <strong>SLAM (Solutions Logicielles et Applications Métiers)</strong>, que je souhaitais 
-                        choisir depuis le début. En fin de première année, j'ai appris des langages plus poussés, 
-                        comme <strong>PHP</strong> et <strong>Java</strong>.
-                    </p>
-                    <p class="text-justify">
-                        En deuxième année, j'ai étudié le Framework <strong>PHP Symfony</strong> et l'environnement de développement 
-                        <strong>Java</strong> avec <strong>Android Studio</strong>, ce qui a renforcé mon désir de me spécialiser 
-                        en développement <strong>backend</strong>.
-                    </p>
-                </div>
-
-                <!-- Colonne des images -->
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <img src="images/collegejeanauriac.jpg" alt="Jean Auriac" class="img-fluid rounded shadow">
-                            <h5 class="mt-2 text-center">Collège Jean Auriac</h5>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <img src="images/lyceemaxlinder.jpg" alt="Max Linder" class="img-fluid rounded shadow">
-                            <h5 class="mt-2 text-center">Lycée Max Linder</h5>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <img src="images/lyceeelievinet.jpg" alt="Elie Vinet" class="img-fluid rounded shadow">
-                            <h5 class="mt-2 text-center">Lycée Elie Vinet</h5>
+            <!-- Introduction -->
+            <section class="mb-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card p-4">
+                            <div class="card-body">
+                                <h2 class="section-title">Mon Parcours</h2>
+                                <p class="lead text-center mb-4">
+                                    De mes débuts au collège jusqu'à ma spécialisation en développement backend
+                                </p>
+                                <p class="text-justify">
+                                    Passionné d'informatique depuis mon plus jeune âge, j'ai construit un parcours académique
+                                    cohérent qui m'a permis de développer des compétences solides en programmation et 
+                                    en développement d'applications. Au fil de mon apprentissage, j'ai découvert une 
+                                    affinité particulière pour le <span class="highlight">développement backend</span>.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </section>
 
+            <!-- Timeline -->
+            <section class="mb-5">
+                <h2 class="section-title">Chronologie de mon parcours</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021-2024</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>BTS SIO option SLAM</h3>
+                            <h5>Lycée Elie Vinet</h5>
+                            <p>
+                                Formation en cours de Services Informatiques aux Organisations, spécialité 
+                                Solutions Logicielles et Applications Métiers.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge-custom">Java</span>
+                                <span class="badge-custom">PHP</span>
+                                <span class="badge-custom">HTML/CSS</span>
+                                <span class="badge-custom">JavaScript</span>
+                                <span class="badge-custom">SQL</span>
+                                <span class="badge-custom">Python</span>
+                                <span class="badge-custom">Symfony</span>
+                                <span class="badge-custom">Android Studio</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018-2021</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Baccalauréat Général</h3>
+                            <h5>Lycée Max Linder</h5>
+                            <p>
+                                Obtention du Baccalauréat Général avec mention Assez Bien.
+                                Spécialités en Mathématiques et Physique.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014-2018</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Brevet des Collèges</h3>
+                            <h5>Collège Jean Auriac</h5>
+                            <p>
+                                Obtention du Brevet des Collèges avec mention Très Bien,
+                                malgré la période Covid.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mes Établissements -->
+            <section class="mb-5">
+                <h2 class="section-title">Mes Établissements</h2>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card school-card h-100">
+                            <div class="overflow-hidden">
+                                <img src="images/lyceeelievinet.jpg" alt="Lycée Elie Vinet" class="card-img-top school-img">
+                            </div>
+                            <div class="school-info">
+                                <h4>Lycée Elie Vinet</h4>
+                                <p><i class="fas fa-map-marker-alt me-2"></i>Barbezieux</p>
+                                <p>BTS SIO - Option SLAM</p>
+                                <p><i class="fas fa-calendar-alt me-2"></i>2021 - 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card school-card h-100">
+                            <div class="overflow-hidden">
+                                <img src="images/lyceemaxlinder.jpg" alt="Lycée Max Linder" class="card-img-top school-img">
+                            </div>
+                            <div class="school-info">
+                                <h4>Lycée Max Linder</h4>
+                                <p><i class="fas fa-map-marker-alt me-2"></i>Libourne</p>
+                                <p>Baccalauréat Général</p>
+                                <p><i class="fas fa-calendar-alt me-2"></i>2018 - 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card school-card h-100">
+                            <div class="overflow-hidden">
+                                <img src="images/collegejeanauriac.jpg" alt="Collège Jean Auriac" class="card-img-top school-img">
+                            </div>
+                            <div class="school-info">
+                                <h4>Collège Jean Auriac</h4>
+                                <p><i class="fas fa-map-marker-alt me-2"></i>Arveyres</p>
+                                <p>Brevet des Collèges</p>
+                                <p><i class="fas fa-calendar-alt me-2"></i>2014 - 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mon Parcours détaillé -->
+            <section class="mb-5">
+                <h2 class="section-title">Mon Parcours en détail</h2>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-laptop-code me-2 text-primary"></i>BTS SIO - SLAM</h3>
+                                <p class="text-justify">
+                                    Durant ma formation en BTS, j'ai découvert les langages de base du développement, 
+                                    tels que <strong>Python</strong> et <strong>SQL</strong>, ainsi que les bases du 
+                                    développement web avec <strong>HTML</strong>, <strong>CSS</strong> et <strong>JavaScript</strong>. 
+                                    C'est d'ailleurs grâce à cela que j'ai choisi cette voie.
+                                </p>
+                                <p class="text-justify">
+                                    En première année, j'ai revu les bases de la programmation et approfondi mes compétences 
+                                    en développement web, tout en découvrant les systèmes et réseaux. En janvier, j'ai opté 
+                                    pour l'option <strong>SLAM (Solutions Logicielles et Applications Métiers)</strong>, 
+                                    que je souhaitais choisir depuis le début. En fin de première année, j'ai appris des 
+                                    langages plus poussés, comme <strong>PHP</strong> et <strong>Java</strong>.
+                                </p>
+                                <p class="text-justify">
+                                    En deuxième année, j'ai étudié le Framework <strong>PHP Symfony</strong> et l'environnement 
+                                    de développement <strong>Java</strong> avec <strong>Android Studio</strong>, ce qui a 
+                                    renforcé mon désir de me spécialiser en développement <strong>backend</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-school me-2 text-primary"></i>Parcours pré-supérieur</h3>
+                                <p class="text-justify">
+                                    J'ai commencé mon parcours scolaire au <strong>Collège Jean Auriac</strong>, 
+                                    où j'ai passé mon brevet des collèges. Bien que la période ait été marquée par 
+                                    le Covid, j'ai réussi à obtenir la <strong>mention Très Bien</strong>.
+                                </p>
+                                <p class="text-justify">
+                                    Par la suite, j'ai intégré le <strong>Lycée Max Linder</strong>, où j'ai passé 
+                                    mon Bac Général avec l'option <strong>Mathématiques</strong> et <strong>Physique</strong>, 
+                                    et j'ai obtenu la <strong>mention Assez Bien</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-code me-2 text-primary"></i>Mes Compétences</h3>
+                                
+                                <h5 class="mt-4">Langages de programmation</h5>
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">PHP</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">Java</span>
+                                        <span>70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">SQL</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">Python</span>
+                                        <span>60%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="mt-4">Développement Web</h5>
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">HTML/CSS</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">JavaScript</span>
+                                        <span>65%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">Symfony</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="mt-4">Autres compétences</h5>
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">Android Studio</span>
+                                        <span>60%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-progress">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="skill-name">Git/GitHub</span>
+                                        <span>70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action -->
+            <section class="mb-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card bg-primary text-white p-4 text-center">
+                            <div class="card-body">
+                                <h3>Intéressé par mon profil ?</h3>
+                                <p>
+                                    N'hésitez pas à consulter mes projets ou à me contacter pour discuter 
+                                    de potentielles collaborations.
+                                </p>
+                                <div class="mt-4">
+                                    <a href="projets.html" class="btn btn-light me-2">
+                                        <i class="fas fa-project-diagram me-2"></i>Voir mes projets
+                                    </a>
+                                    <a href="contact.html" class="btn btn-outline-light">
+                                        <i class="fas fa-paper-plane me-2"></i>Me contacter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="py-4 bg-dark text-white text-center mt-auto">
         <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-md-start">
+                    <h5>Mon Portfolio</h5>
+                    <p>Portfolio professionnel présentant mon parcours scolaire et mes compétences.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Retrouvez-moi</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
             <p>© 2024 Mon Portfolio. Tous droits réservés.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation des compétences
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            // Animation des barres de compétences
+            const skillLevels = document.querySelectorAll('.skill-level');
+            skillLevels.forEach(skill => {
+                skill.style.width = '0%';
+                setTimeout(() => {
+                    skill.style.width = skill.parentElement.previousElementSibling.lastElementChild.textContent;
+                }, 500);
+            });
+            
+            // Fonction pour vérifier si un élément est visible
+            function checkVisible(elm) {
+                const rect = elm.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+                return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+            }
+            
+            // Fonction pour animer les éléments visibles
+            function animateOnScroll() {
+                animateElements.forEach(el => {
+                    if (checkVisible(el)) {
+                        el.classList.add('show');
+                    }
+                });
+            }
+            
+            // Ajouter la classe animate-on-scroll aux éléments
+            document.querySelectorAll('.timeline-item, .card').forEach(el => {
+                el.classList.add('animate-on-scroll');
+            });
+            
+            // Exécuter initialement
+            animateOnScroll();
+            
+            // Ajouter l'événement de défilement
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
 </body>
 </html>
