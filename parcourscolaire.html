@@ -606,47 +606,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Animation des compétences
-        document.addEventListener('DOMContentLoaded', function() {
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            
-            // Animation des barres de compétences
-            const skillLevels = document.querySelectorAll('.skill-level');
-            skillLevels.forEach(skill => {
-                skill.style.width = '0%';
-                setTimeout(() => {
-                    skill.style.width = skill.parentElement.previousElementSibling.lastElementChild.textContent;
-                }, 500);
-            });
-            
-            // Fonction pour vérifier si un élément est visible
-            function checkVisible(elm) {
-                const rect = elm.getBoundingClientRect();
-                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-                return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-            }
-            
-            // Fonction pour animer les éléments visibles
-            function animateOnScroll() {
-                animateElements.forEach(el => {
-                    if (checkVisible(el)) {
-                        el.classList.add('show');
-                    }
-                });
-            }
-            
-            // Ajouter la classe animate-on-scroll aux éléments
-            document.querySelectorAll('.timeline-item, .card').forEach(el => {
-                el.classList.add('animate-on-scroll');
-            });
-            
-            // Exécuter initialement
-            animateOnScroll();
-            
-            // Ajouter l'événement de défilement
-            window.addEventListener('scroll', animateOnScroll);
-        });
-    </script>
 </body>
 </html>
