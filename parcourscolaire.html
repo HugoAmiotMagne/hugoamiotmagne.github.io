@@ -141,7 +141,7 @@
             font-weight: bold;
             padding: 5px 15px;
             border-radius: 20px;
-            z-index: 1;
+            z-index: 2;
         }
 
         .timeline-dot {
@@ -153,7 +153,9 @@
             height: 20px;
             background: var(--primary-color);
             border-radius: 50%;
-            z-index: 1;
+            z-index: 2;
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
         .skill-progress {
@@ -232,6 +234,22 @@
             height: 100%;
             background: url('https://cdnjs.cloudflare.com/ajax/libs/galaxy-css/1.1.0/img/hex.svg');
             opacity: 0.1;
+        }
+
+        /* Animation du header */
+        .animate-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Animation des compétences */
@@ -678,5 +696,25 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script pour animer les barres de compétences au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
