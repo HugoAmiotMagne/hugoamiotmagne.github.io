@@ -26,6 +26,55 @@
             height: 60px;
             font-size: 1.2rem;
         }
+        
+        .realisations {
+            margin-top: 30px;
+        }
+        
+        .realisation-item {
+            border-left: 4px solid #28a745;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .competence-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .gerer-patrimoine {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .repondre-incidents {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        
+        .developper-presence {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        .mode-projet {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .service-info {
+            background-color: #e2e3e5;
+            border: 1px solid #d6d8db;
+        }
+        
+        .dev-pro {
+            background-color: #cce5ff;
+            border: 1px solid #b8daff;
+        }
     </style>
     
 </head>
@@ -56,21 +105,124 @@
                     <h3 class="mb-4">Fonctionnement du Site</h3>
                     <p>Ce site a été codé en HTML, CSS et JavaScript. De plus, les questions ont été codées en JSON pour pouvoir les utiliser avec le JavaScript.
                        Il y a en tout 50 questions qui peuvent être utilisées. Dans le test et pour chaque personne, 12 questions sont posées. 
-                       Pour le choix des questions, lors du questionnaire, les questions sont (tirées au sort).
-                       A la fin du questionnaire, la personne doit avoir 8/12 pour réussir le test et avoir un diplôme créé par nos soins. Sinon, la personne peut repasser les tests
+                       Pour le choix des questions, lors du questionnaire, les questions sont tirées au sort.
+                       A la fin du questionnaire, la personne doit avoir 8/12 pour réussir le test et avoir un diplôme créé par nos soins. Sinon, la personne peut repasser les tests.
                        De plus, l'employé doit s'authentifier avant que les résultats soient envoyés pour récupérer les informations.
                     </p>
+                    
+                    <div class="realisations">
+                        <h3>Réalisations durant le stage (Mai-Juin 2024)</h3>
+                        
+                        <div class="realisation-item">
+                            <h4>Création des questions du quiz cybersécurité en JSON</h4>
+                            <p>Conception et structuration de 50 questions sur la cybersécurité en format JSON pour permettre leur utilisation dynamique dans l'application.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                                <span class="competence-badge gerer-patrimoine">Gérer le patrimoine informatique</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Exploitation de référentiels et normes en cybersécurité</li>
+                                <li>Participation à l'évolution d'un site Web exploitant les données de l'organisation</li>
+                                <li>Structuration des données en format JSON</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4>Création d'un site pour répondre aux questions</h4>
+                            <p>Développement de l'interface utilisateur permettant aux employés de passer le quiz de cybersécurité avec sélection aléatoire des questions et affichage des résultats.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Déploiement d'un service informatique pour les utilisateurs</li>
+                                <li>Développement d'une interface web interactive</li>
+                                <li>Implémentation d'un système de sélection aléatoire des questions</li>
+                                <li>Création d'un système d'authentification des utilisateurs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4>Création d'un diplôme de certification de réussite du quiz</h4>
+                            <p>Conception et implémentation d'un système automatisé de génération de diplômes pour les employés ayant réussi le test (score ≥ 8/12).</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                                <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Accompagnement des utilisateurs dans la mise en place d'un service</li>
+                                <li>Valorisation de l'image de l'organisation</li>
+                                <li>Génération dynamique de documents personnalisés</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4>Création d'un OM du site</h4>
+                            <p>Élaboration d'un guide d'Organisation et Méthodes (OM) pour documenter le fonctionnement du site et permettre sa maintenance.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge gerer-patrimoine">Gérer le patrimoine informatique</span>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                                <span class="competence-badge dev-pro">Organiser son développement professionnel</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Recenser et identifier les ressources numériques</li>
+                                <li>Accompagner les utilisateurs dans la mise en place d'un service</li>
+                                <li>Documentation technique complète du projet</li>
+                                <li>Gestion de son identité professionnelle</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4>Exercices sur la cybersécurité et le vocabulaire</h4>
+                            <p>Création d'exercices complémentaires pour renforcer la compréhension des concepts de cybersécurité et du vocabulaire technique associé.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge repondre-incidents">Répondre aux incidents et aux demandes d'assistance et d'évolution</span>
+                                <span class="competence-badge dev-pro">Organiser son développement professionnel</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Traitement des demandes concernant les services réseau et système</li>
+                                <li>Mise en œuvre d'outils et stratégies de veille informationnelle</li>
+                                <li>Conception de contenus pédagogiques sur la cybersécurité</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Colonne droite : Langages utilisés -->
+                <!-- Colonne droite : Langages utilisés et résumé des compétences -->
                 <div class="col-md-4">
                     <div class="p-3 border rounded">
                         <h4 class="mb-3 text-center">Langages utilisés</h4>
                         <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-                            <img src="images/css-logo.jpg" alt="CSS" class="img-fluid" style="width: 80px; height: 80px;">
                             <img src="images/html-logo.png" alt="HTML" class="img-fluid" style="width: 80px; height: 80px;">
+                            <img src="images/css-logo.jpg" alt="CSS" class="img-fluid" style="width: 80px; height: 80px;">
                             <img src="images/logo-js.webp" alt="JavaScript" class="img-fluid" style="width: 80px; height: 80px;">
                         </div>
+                    </div>
+                    
+                    <div class="p-3 border rounded mt-4">
+                        <h4 class="mb-3 text-center">Compétences mobilisées</h4>
+                        
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <div class="competence-badge gerer-patrimoine w-100">Gérer le patrimoine informatique</div>
+                            <div class="competence-badge repondre-incidents w-100">Répondre aux incidents et aux demandes</div>
+                            <div class="competence-badge developper-presence w-100">Développer la présence en ligne</div>
+                            <div class="competence-badge service-info w-100">Mettre à disposition un service informatique</div>
+                            <div class="competence-badge dev-pro w-100">Organiser son développement professionnel</div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="small">Ce projet mobilise principalement les compétences liées au développement web, à la mise à disposition de services informatiques et à la gestion du patrimoine numérique.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-3 border rounded mt-4">
+                        <h4 class="mb-3 text-center">Période de réalisation</h4>
+                        <p class="text-center">Mai-Juin 2024</p>
                     </div>
                 </div>
             </div>
