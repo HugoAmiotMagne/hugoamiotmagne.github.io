@@ -3,11 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet - Détails</title>
+    <title>Projet Keycloak - Détails</title>
+    <meta name="description" content="Détails du projet Keycloak développé en stage - Portfolio de Hugo Amiot Magne">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #495057;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Navigation styling */
+        .navbar {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand .logo-accent {
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover:before, .nav-link.active:before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
         .carousel-item img {
             height: 400px; 
             width: 100%; 
@@ -26,18 +88,161 @@
             height: 60px;
             font-size: 1.2rem;
         }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .realisations {
+            margin-top: 30px;
+        }
+        
+        .realisation-item {
+            border-left: 4px solid #28a745;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .realisation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .competence-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .gerer-patrimoine {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .repondre-incidents {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        
+        .developper-presence {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        .mode-projet {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .service-info {
+            background-color: #e2e3e5;
+            border: 1px solid #d6d8db;
+        }
+        
+        .dev-pro {
+            background-color: #cce5ff;
+            border: 1px solid #b8daff;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Style pour mobile */
+        @media (max-width: 768px) {
+            .realisation-item {
+                padding: 15px 10px;
+            }
+            
+            .competence-badge {
+                margin: 3px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
     
 </head>
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="fas fa-code me-2"></i>Hugo<span class="logo-accent">Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="../../../index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../projets.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html">Parcours Scolaire</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html"><i class="fas fa-home me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../../../projets.html"><i class="fas fa-project-diagram me-1"></i>Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html"><i class="fas fa-graduation-cap me-1"></i>Parcours</a></li>
                 </ul>
             </div>
         </div>
@@ -48,58 +253,199 @@
             <div class="row">
                 <!-- Colonne gauche : Informations du projet -->
                 <div class="col-md-8">
-                    <h2 class="mb-4"></h2>
-                    <p>Description détaillée du projet. Expliquez les objectifs, les fonctionnalités et les technologies utilisées.</p>
-                </div>
-                
-                <!-- Colonne droite : Langages utilisés -->
-                <div class="col-md-4">
-                    <a href="#" class="btn btn-dark btn-lg mb-4 w-100" target="_blank">
-                        <i class="fab fa-github"></i> Voir sur GitHub
-                    </a>
+                    <h2 class="mb-4 section-title">Projet Keycloak - Authentification SSO</h2>
+                    <p>Mise en place d'une infrastructure d'authentification unique (SSO) avec Keycloak dans un environnement virtualisé.
+                       Ce projet a permis de créer une solution d'authentification centralisée pour les différents services de l'entreprise.
+                       L'architecture repose sur trois machines virtuelles interconnectées et intègre une application web Symfony sécurisée par Keycloak.
+                    </p>
 
-                    <div class="p-3 border rounded">
-                        <h4 class="mb-3 text-center">Langages utilisés</h4>
-                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-                            <img src="images/php.png" alt="PHP" class="img-fluid" style="width: 80px; height: 80px;">
-                            <img src="images/javascript.png" alt="JavaScript" class="img-fluid" style="width: 80px; height: 80px;">
-                            <img src="images/python.png" alt="Python" class="img-fluid" style="width: 80px; height: 80px;">
+                    <h3 class="mb-4">Fonctionnement du Projet</h3>
+                    <p>Le système d'authentification Keycloak a été déployé dans une architecture à trois machines virtuelles : une VM Debian 12 hébergeant
+                       le serveur Keycloak et l'application Symfony, une VM Windows Server avec Active Directory pour la gestion des utilisateurs, et une VM Windows 11
+                       pour tester l'accès client. L'application web développée en Symfony permet aux utilisateurs de se connecter via le service d'authentification
+                       Keycloak, qui vérifie les identifiants auprès de l'Active Directory. Cette architecture assure une authentification sécurisée et centralisée
+                       pour tous les services de l'entreprise.
+                    </p>
+                    
+                    <div class="realisations">
+                        <h3 class="mb-4">Réalisations durant le stage (Mai-Juin 2024)</h3>
+                        
+                        <div class="realisation-item">
+                            <h4><i class="fas fa-server me-2 text-primary"></i>Mise en place d'une infrastructure de 3 VM connectées</h4>
+                            <p>Configuration d'un environnement virtualisé comprenant trois machines virtuelles interconnectées pour héberger la solution d'authentification Keycloak.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge repondre-incidents">Répondre aux incidents et aux demandes d'assistance et d'évolution</span>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Traiter des demandes concernant les services réseau et système</li>
+                                <li>Déploiement d'un service pour les utilisateurs</li>
+                                <li>Configuration réseau pour l'interconnexion des machines virtuelles</li>
+                                <li>Mise en place des environnements virtualisés adaptés aux besoins du projet</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4><i class="fas fa-laptop-code me-2 text-primary"></i>Création d'un site avec redirection Keycloak avec Symfony 7.4 sur Debian 12</h4>
+                            <p>Développement d'une application web Symfony intégrant l'authentification SSO via Keycloak sur un serveur Debian 12.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Participation à l'évolution d'un site Web exploitant les données de l'organisation</li>
+                                <li>Intégration de l'authentification SSO au site web</li>
+                                <li>Configuration de Symfony pour communiquer avec Keycloak</li>
+                                <li>Développement des fonctionnalités d'authentification sécurisée</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4><i class="fas fa-cogs me-2 text-primary"></i>Mise en place du site sur Apache pour accès depuis Windows 11</h4>
+                            <p>Configuration du serveur web Apache pour héberger l'application Symfony et permettre l'accès depuis la VM client Windows 11.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge gerer-patrimoine">Gérer le patrimoine informatique</span>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                                <li>Déployer un service pour les utilisateurs</li>
+                                <li>Configuration d'Apache pour héberger une application Symfony</li>
+                                <li>Mise en place des règles de sécurité pour l'accès au service</li>
+                                <li>Mise en place des vérifications de bon fonctionnement du service</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4><i class="fas fa-users-cog me-2 text-primary"></i>Création d'une Windows Server avec AD pour connecter à Keycloak</h4>
+                            <p>Installation et configuration d'une machine Windows Server avec Active Directory pour la gestion des utilisateurs et son intégration avec Keycloak.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge repondre-incidents">Répondre aux incidents et aux demandes d'assistance et d'évolution</span>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Traiter des demandes concernant les services réseau et système</li>
+                                <li>Mettre en place et vérifier les niveaux d'habilitation associés à un service</li>
+                                <li>Configuration d'Active Directory pour la gestion des utilisateurs</li>
+                                <li>Intégration d'Active Directory avec Keycloak pour l'authentification centralisée</li>
+                                <li>Configuration des politiques de sécurité pour les comptes utilisateurs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4><i class="fas fa-code-branch me-2 text-primary"></i>Changement de version Symfony en 4.4</h4>
+                            <p>Migration de l'application Symfony vers la version 4.4 pour résoudre des problèmes de compatibilité avec Keycloak.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                                <span class="competence-badge service-info">Mettre à disposition des utilisateurs un service informatique</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Participer à l'évolution d'un site Web exploitant les données de l'organisation</li>
+                                <li>Réaliser les tests d'intégration et d'acceptation d'un service</li>
+                                <li>Adaptation du code pour assurer la compatibilité avec la nouvelle version</li>
+                                <li>Test et déploiement de la nouvelle version de l'application</li>
+                                <li>Résolution des problèmes de compatibilité avec Keycloak</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="realisation-item">
+                            <h4><i class="fas fa-book me-2 text-primary"></i>Création d'une documentation sur l'utilisation de Keycloak</h4>
+                            <p>Élaboration d'une documentation complète sur l'installation, la configuration et l'utilisation de Keycloak dans l'environnement de l'entreprise.</p>
+                            <h5>Compétences mobilisées :</h5>
+                            <div>
+                                <span class="competence-badge gerer-patrimoine">Gérer le patrimoine informatique</span>
+                                <span class="competence-badge repondre-incidents">Répondre aux incidents et aux demandes d'assistance et d'évolution</span>
+                                <span class="competence-badge mode-projet">Travailler en mode projet</span>
+                                <span class="competence-badge dev-pro">Organiser son développement professionnel</span>
+                            </div>
+                            <ul class="mt-2">
+                                <li>Recenser et identifier les ressources numériques</li>
+                                <li>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</li>
+                                <li>Analyser les objectifs et les modalités d'organisation d'un projet</li>
+                                <li>Mettre en œuvre des outils et stratégies de veille informationnelle</li>
+                                <li>Création d'une documentation technique détaillée pour faciliter la maintenance</li>
+                                <li>Élaboration de guides pratiques pour les utilisateurs et administrateurs</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Carrousel d'images du projet -->
-            <div class="row mt-5">
-                <div class="col-12">
-                    <h3 class="text-center mb-4">Aperçu du Projet</h3>
-                    <div id="carouselProjet" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/projet1.jpg" class="d-block w-100" alt="Aperçu 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/projet2.jpg" class="d-block w-100" alt="Aperçu 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/projet3.jpg" class="d-block w-100" alt="Aperçu 3">
-                            </div>
+                
+                <!-- Colonne droite : Langages utilisés et résumé des compétences -->
+                <div class="col-md-4">
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Technologies utilisées</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                            <img src="images/symfony-logo.png" alt="Symfony" class="img-fluid" style="width: 80px; height: 80px;">
+                            <img src="images/keycloak-logo.png" alt="Keycloak" class="img-fluid" style="width: 80px; height: 80px;">
+                            <img src="images/apache-logo.png" alt="Apache" class="img-fluid" style="width: 80px; height: 80px;">
+                            <img src="images/debian-logo.png" alt="Debian" class="img-fluid" style="width: 80px; height: 80px;">
+                            <img src="images/windows-server-logo.png" alt="Windows Server" class="img-fluid" style="width: 80px; height: 80px;">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProjet" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Compétences mobilisées</h4>
+                        
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <div class="competence-badge gerer-patrimoine w-100">Gérer le patrimoine informatique</div>
+                            <div class="competence-badge repondre-incidents w-100">Répondre aux incidents et aux demandes</div>
+                            <div class="competence-badge developper-presence w-100">Développer la présence en ligne</div>
+                            <div class="competence-badge mode-projet w-100">Travailler en mode projet</div>
+                            <div class="competence-badge service-info w-100">Mettre à disposition un service informatique</div>
+                            <div class="competence-badge dev-pro w-100">Organiser son développement professionnel</div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="small">Ce projet mobilise principalement les compétences liées à la gestion des systèmes d'information, au déploiement de services et à la mise en place de solutions d'authentification sécurisées.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-3">
+                        <h4 class="mb-3 text-center">Période de réalisation</h4>
+                        <p class="text-center"><i class="far fa-calendar-alt me-2"></i>Mai-Juin 2024</p>
+                        <div class="text-center mt-3">
+                            <a href="../../../projets.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour aux projets
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     
-    <footer class="py-4 bg-dark text-white text-center mt-auto">
+    <!-- Footer -->
+    <footer class="mt-auto" id="footer">
         <div class="container">
-            <p>© 2024 Mon Portfolio. Tous droits réservés.</p>
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Hugo Amiot Magne</h5>
+                    <p>Développeur Web & Étudiant en BTS SIO</p>
+                    <p class="mb-1">Portfolio professionnel présentant mon parcours et mes compétences en développement web.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../../../index.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Accueil</a></li>
+                        <li class="mb-2"><a href="../../../projets.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Projets</a></li>
+                        <li class="mb-2"><a href="../../../parcourscolaire.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Parcours</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Retrouvez-moi</h5>
+                    <div class="social-icons mb-3">
+                        <a href="https://github.com/HugoAmiotMagne" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:hugo463324@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="text-center mb-0">© 2024 Hugo Amiot Magne. Tous droits réservés.</p>
         </div>
     </footer>
     
