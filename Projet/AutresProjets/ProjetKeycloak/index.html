@@ -372,10 +372,46 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <!-- Carrousel d'images du projet -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h3 class="text-center mb-4">Aperçu du Projet</h3>
+                            <div id="carouselProjet" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="images/keycloak-login.png" class="d-block w-100" alt="Page de connexion Keycloak">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/symfony-app.png" class="d-block w-100" alt="Application Symfony">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/dashboard-keycloak.png" class="d-block w-100" alt="Dashboard Keycloak">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/ad-integration.png" class="d-block w-100" alt="Intégration Active Directory">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselProjet" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Colonne droite : Langages utilisés et résumé des compétences -->
                 <div class="col-md-4">
+                    <!-- Nouveau bouton GitHub -->
+                    <div class="card p-3 mb-4">
+                        <a href="https://github.com/HugoAmiotMagne/projet-keycloak" class="btn btn-dark github-btn">
+                            <i class="fab fa-github me-2"></i>Voir le projet sur GitHub
+                        </a>
+                    </div>
+                    
                     <div class="card p-3 mb-4">
                         <h4 class="mb-3 text-center">Technologies utilisées</h4>
                         <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
