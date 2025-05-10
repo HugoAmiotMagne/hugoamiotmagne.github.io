@@ -3,11 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet - Détails</title>
+    <title>Projet GRAD - Détails</title>
+    <meta name="description" content="Détails du projet GRAD développé pour apprendre les bases du HTML, CSS, PHP et Bootstrap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #495057;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Navigation styling */
+        .navbar {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand .logo-accent {
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover:before, .nav-link.active:before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
         .carousel-item img {
             height: 400px; 
             width: 100%; 
@@ -26,18 +88,156 @@
             height: 60px;
             font-size: 1.2rem;
         }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .realisations {
+            margin-top: 30px;
+        }
+        
+        .realisation-item {
+            border-left: 4px solid #28a745;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .realisation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .competence-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .incident-assistance {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .developper-presence {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        .service-info {
+            background-color: #e2e3e5;
+            border: 1px solid #d6d8db;
+        }
+        
+        .dev-pro {
+            background-color: #cce5ff;
+            border: 1px solid #b8daff;
+        }
+
+        .mode-projet {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Style pour mobile */
+        @media (max-width: 768px) {
+            .realisation-item {
+                padding: 15px 10px;
+            }
+            
+            .competence-badge {
+                margin: 3px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
     
 </head>
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="fas fa-code me-2"></i>Hugo<span class="logo-accent">Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="../../../index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../projets.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html">Parcours Scolaire</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html"><i class="fas fa-home me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../../../projets.html"><i class="fas fa-project-diagram me-1"></i>Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html"><i class="fas fa-graduation-cap me-1"></i>Parcours</a></li>
                 </ul>
             </div>
         </div>
@@ -48,23 +248,94 @@
             <div class="row">
                 <!-- Colonne gauche : Informations du projet -->
                 <div class="col-md-8">
-                    <h2 class="mb-4">Projet GRAD</h2>
-                    <p>Ce site est un projet de groupe mis en place pour apprendre les bases du html, css, php et bootstrap. 
-                       De plus on n'a pu apprendre a gérer de bases de données (Adminer).</p>
+                    <h2 class="mb-4 section-title">Projet GRAD</h2>
+                    <p>Ce site est un projet de groupe mis en place pour apprendre les bases du HTML, CSS, PHP et Bootstrap. 
+                       De plus, j'ai pu apprendre à gérer des bases de données (Adminer). Cette expérience a permis de mettre
+                       en pratique plusieurs compétences techniques dans un contexte de projet collaboratif.</p>
+
+                    <h3 class="mb-4">Description du Projet</h3>
+                    <p>Le projet GRAD consiste en la création d'un site web complet intégrant plusieurs fonctionnalités de base
+                       de données et d'interactions utilisateur. Il a été développé en équipe, nous permettant d'appliquer
+                       une méthodologie de projet structurée et d'expérimenter avec différentes technologies web.
+                       Le site présente plusieurs sections incluant une page d'accueil, une zone de prestations et une galerie
+                       de réalisations, toutes connectées à une base de données pour la gestion dynamique du contenu.
+                    </p>
+                    
+                    <div class="realisation-item mt-4">
+                        <h4><i class="fas fa-tasks me-2 text-primary"></i>Réalisation du Projet GRAD</h4>
+                        <p>Ce projet a été conçu et développé pour approfondir nos compétences en développement web 
+                        et en gestion de bases de données. Le développement du site a impliqué plusieurs étapes:</p>
+                        
+                        <ul class="mt-3">
+                            <li><strong>Conception de la structure</strong> : définition de l'architecture du site et des interactions utilisateur</li>
+                            <li><strong>Création de la base de données</strong> : conception du schéma et implémentation avec Adminer</li>
+                            <li><strong>Développement front-end</strong> : réalisation des interfaces utilisateur avec HTML, CSS et Bootstrap</li>
+                            <li><strong>Développement back-end</strong> : programmation des fonctionnalités en PHP pour la gestion des données</li>
+                            <li><strong>Tests et validation</strong> : vérification des fonctionnalités et correction des anomalies</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Compétences mobilisées :</h5>
+                        <div>
+                            <span class="competence-badge incident-assistance">Répondre aux incidents et aux demandes d'assistance</span>
+                            <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p><strong>Répondre aux incidents et aux demandes d'assistance et d'évolution :</strong></p>
+                            <ul>
+                                <li>Collecter, suivre et orienter des demandes pendant la phase de développement collaboratif</li>
+                                <li>Traiter des demandes concernant les services réseau et système, applicatifs</li>
+                                <li>Traiter des demandes concernant les applications et leur intégration avec la base de données</li>
+                            </ul>
+                            
+                            <p><strong>Développer la présence en ligne de l'organisation :</strong></p>
+                            <ul>
+                                <li>Participer à la valorisation de l'image de l'organisation sur les médias numériques en tenant compte du cadre juridique et des enjeux économiques</li>
+                                <li>Référencer les services en ligne de l'organisation et mesurer leur visibilité</li>
+                                <li>Participer à l'évolution d'un site Web exploitant les données de l'organisation</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Colonne droite : Langages utilisés -->
+                <!-- Colonne droite : Technologies utilisées et résumé des compétences -->
                 <div class="col-md-4">
-                    <a href="https://github.com/HugoAmiotMagne/GradProject" class="btn btn-dark btn-lg mb-4 w-100" target="_blank">
-                        <i class="fab fa-github"></i> Voir sur GitHub
-                    </a>
-
-                    <div class="p-3 border rounded">
-                        <h4 class="mb-3 text-center">Langages utilisés</h4>
+                    <!-- Bouton GitHub -->
+                    <div class="card p-3 mb-4">
+                        <a href="https://github.com/HugoAmiotMagne/GradProject" class="btn btn-dark github-btn">
+                            <i class="fab fa-github me-2"></i>Voir le projet sur GitHub
+                        </a>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Technologies utilisées</h4>
                         <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
                             <img src="images/php-logo.png" alt="PHP" class="img-fluid" style="width: 80px; height: 80px;">
                             <img src="images/html-logo.png" alt="HTML" class="img-fluid" style="width: 80px; height: 80px;">
                             <img src="images/css-logo.jpg" alt="CSS" class="img-fluid" style="width: 80px; height: 80px;">
+                        </div>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Compétences mobilisées</h4>
+                        
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <div class="competence-badge incident-assistance w-100">Répondre aux incidents et aux demandes</div>
+                            <div class="competence-badge developper-presence w-100">Développer la présence en ligne</div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="small">Ce projet mobilise principalement les compétences liées au développement web et à la gestion de bases de données, ainsi qu'à la résolution de problèmes techniques dans un contexte de projet d'équipe.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-3">
+                        <h4 class="mb-3 text-center">Période de réalisation</h4>
+                        <p class="text-center"><i class="far fa-calendar-alt me-2"></i>Septembre-Novembre 2023</p>
+                        <div class="text-center mt-3">
+                            <a href="../../../projets.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour aux projets
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -77,13 +348,13 @@
                     <div id="carouselProjet" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/grad_accueil.png" class="d-block w-100" alt="Aperçu 1">
+                                <img src="images/grad_accueil.png" class="d-block w-100" alt="Page d'accueil GRAD">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/grad_prestation.png" class="d-block w-100" alt="Aperçu 2">
+                                <img src="images/grad_prestation.png" class="d-block w-100" alt="Page prestations GRAD">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/grad_realisation.png" class="d-block w-100" alt="Aperçu 3">
+                                <img src="images/grad_realisation.png" class="d-block w-100" alt="Page réalisations GRAD">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
@@ -98,9 +369,34 @@
         </div>
     </main>
     
-    <footer class="py-4 bg-dark text-white text-center mt-auto">
+    <!-- Footer -->
+    <footer class="mt-auto" id="footer">
         <div class="container">
-            <p>© 2024 Mon Portfolio. Tous droits réservés.</p>
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Hugo Amiot Magne</h5>
+                    <p>Développeur Web & Étudiant en BTS SIO</p>
+                    <p class="mb-1">Portfolio professionnel présentant mon parcours et mes compétences en développement web.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../../../index.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Accueil</a></li>
+                        <li class="mb-2"><a href="../../../projets.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Projets</a></li>
+                        <li class="mb-2"><a href="../../../parcourscolaire.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Parcours</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Retrouvez-moi</h5>
+                    <div class="social-icons mb-3">
+                        <a href="https://github.com/HugoAmiotMagne" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:hugo463324@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="text-center mb-0">© 2024 Hugo Amiot Magne. Tous droits réservés.</p>
         </div>
     </footer>
     

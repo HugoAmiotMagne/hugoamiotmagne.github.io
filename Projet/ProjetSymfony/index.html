@@ -3,11 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet - Détails</title>
+    <title>Projet Formation Online Learning - Détails</title>
+    <meta name="description" content="Détails du projet Formation Online Learning - Portfolio de Hugo Amiot Magne">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #495057;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Navigation styling */
+        .navbar {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand .logo-accent {
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover:before, .nav-link.active:before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
         .carousel-item img {
             height: 400px; 
             width: 100%; 
@@ -25,19 +86,148 @@
             width: 100%;
             height: 60px;
             font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .realisations {
+            margin-top: 30px;
+        }
+        
+        .realisation-item {
+            border-left: 4px solid #28a745;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .realisation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .competence-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .assistance-incident {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+        
+        .developper-presence {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        .mode-projet {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Style pour mobile */
+        @media (max-width: 768px) {
+            .realisation-item {
+                padding: 15px 10px;
+            }
+            
+            .competence-badge {
+                margin: 3px;
+                font-size: 0.8rem;
+            }
         }
     </style>
     
 </head>
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="fas fa-code me-2"></i>Hugo<span class="logo-accent">Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="../../../index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../projets.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html">Parcours Scolaire</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html"><i class="fas fa-home me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../../../projets.html"><i class="fas fa-project-diagram me-1"></i>Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html"><i class="fas fa-graduation-cap me-1"></i>Parcours</a></li>
                 </ul>
             </div>
         </div>
@@ -48,58 +238,159 @@
             <div class="row">
                 <!-- Colonne gauche : Informations du projet -->
                 <div class="col-md-8">
-                    <h2 class="mb-4">Projet Formation - Online Learning</h2>
-                    <p>Mise en place d'un site de formation pour stagiaire. </p>
-                </div>
-                
-                <!-- Colonne droite : Langages utilisés -->
-                <div class="col-md-4">
-                    <a href="#" class="btn btn-dark btn-lg mb-4 w-100" target="_blank">
-                        <i class="fab fa-github"></i> Voir sur GitHub
-                    </a>
+                    <h2 class="mb-4 section-title">Projet Formation - Online Learning</h2>
+                    <p>Conception et développement d'une application web pour une société assurant des cours de formation continue auprès de stagiaires salariés de diverses entreprises. Cette application permet de gérer efficacement les inscriptions, le planning des consultants, les sessions de formation et la réservation des salles.
+                       Ce projet a été réalisé en équipe de deux personnes, avec une répartition claire des tâches et responsabilités, permettant de livrer une solution fonctionnelle répondant aux besoins spécifiques du client.
+                    </p>
 
-                    <div class="p-3 border rounded">
-                        <h4 class="mb-3 text-center">Langages utilisés</h4>
-                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-                            <img src="images/php.png" alt="PHP" class="img-fluid" style="width: 80px; height: 80px;">
-                            <img src="images/javascript.png" alt="JavaScript" class="img-fluid" style="width: 80px; height: 80px;">
-                            <img src="images/python.png" alt="Python" class="img-fluid" style="width: 80px; height: 80px;">
+                    <h3 class="mb-4">Description du Projet</h3>
+                    <p>L'application Online Learning a été conçue pour améliorer la gestion des formations au sein d'une société de formation continue. Elle permet de gérer les inscriptions des stagiaires salariés, la planification des sessions, les créneaux des consultants et l'attribution des salles. Le système intègre différents rôles utilisateurs (administrateur, stagiaire, consultant, formateur, technicien) avec des droits spécifiques adaptés à chaque profil. Développée avec Symfony 6 et une base de données PostgreSQL, cette application web responsive offre une interface intuitive pour tous les utilisateurs impliqués dans le processus de formation.</p>
+                    
+                    <div class="realisation-item mt-4">
+                        <h4><i class="fas fa-tasks me-2 text-primary"></i>Réalisation du Projet Online Learning</h4>
+                        <p>Cette application a été développée en suivant une méthodologie de gestion de projet structurée, avec un focus particulier sur la gestion des utilisateurs et l'optimisation des processus de formation. Mon rôle dans ce projet comportait plusieurs aspects clés :</p>
+                        
+                        <ul class="mt-3">
+                            <li><strong>Système d'authentification</strong> : Implémentation du login/register avec gestion des rôles et autorisations</li>
+                            <li><strong>Gestion des sessions de formation</strong> : Création, modification et suppression des sessions avec attribution des formateurs</li>
+                            <li><strong>Planification des créneaux consultants</strong> : Interface de gestion des disponibilités des consultants pour les renseignements</li>
+                            <li><strong>Gestion des salariés</strong> : Système d'inscription et de suivi des stagiaires avec leurs informations et leurs formations choisies</li>
+                            <li><strong>Interface utilisateur responsive</strong> : Développement d'interfaces adaptées à chaque type d'utilisateur selon son rôle</li>
+                            <li><strong>Sécurité des données</strong> : Mise en place de mécanismes de validation et sécurisation des données sensibles</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Compétences mobilisées :</h5>
+                        <div>
+                            <span class="competence-badge assistance-incident">Répondre aux incidents et aux demandes d'assistance et d'évolution</span>
+                            <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                            <span class="competence-badge mode-projet">Travailler en mode projet</span>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p><strong>Répondre aux incidents et aux demandes d'assistance et d'évolution :</strong></p>
+                            <ul>
+                                <li>Collecte et suivi des demandes spécifiques des différents types d'utilisateurs (stagiaires, consultants, formateurs)</li>
+                                <li>Traitement des demandes concernant les services réseau et système intégrés à l'application web</li>
+                                <li>Mise en place de solutions adaptées aux besoins évolutifs de la société de formation</li>
+                            </ul>
+                            
+                            <p><strong>Développer la présence en ligne de l'organisation :</strong></p>
+                            <ul>
+                                <li>Participation à la valorisation de l'image de l'organisme de formation à travers une plateforme web professionnelle</li>
+                                <li>Référencement des services de formation proposés par l'organisme pour une meilleure visibilité</li>
+                                <li>Exploitation des données de l'organisation (formations, consultants, sessions) pour enrichir l'expérience utilisateur</li>
+                            </ul>
+                            
+                            <p><strong>Travailler en mode projet :</strong></p>
+                            <ul>
+                                <li>Analyse approfondie des objectifs et définition des modalités d'organisation avec le client</li>
+                                <li>Planification rigoureuse des activités de développement avec répartition des tâches entre les membres de l'équipe</li>
+                                <li>Mise en place d'indicateurs de suivi (avancement, qualité, performance) et analyse régulière des écarts</li>
+                                <li>Organisation de réunions d'équipe hebdomadaires pour synchroniser les avancées et ajuster la planification si nécessaire</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Carrousel d'images du projet -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h3 class="text-center mb-4">Aperçu du Projet</h3>
+                            <div id="carouselProjet" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="images/projet1.jpg" class="d-block w-100" alt="Interface d'accueil Online Learning">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/projet2.jpg" class="d-block w-100" alt="Page de gestion des sessions">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/projet3.jpg" class="d-block w-100" alt="Interface de planification">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselProjet" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Carrousel d'images du projet -->
-            <div class="row mt-5">
-                <div class="col-12">
-                    <h3 class="text-center mb-4">Aperçu du Projet</h3>
-                    <div id="carouselProjet" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/projet1.jpg" class="d-block w-100" alt="Aperçu 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/projet2.jpg" class="d-block w-100" alt="Aperçu 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/projet3.jpg" class="d-block w-100" alt="Aperçu 3">
-                            </div>
+                
+                <!-- Colonne droite : Technologies utilisées et résumé des compétences -->
+                <div class="col-md-4">
+                    <!-- Bouton GitHub -->
+                    <div class="card p-3 mb-4">
+                        <a href="https://github.com/HugoAmiotMagne/FormationExam" class="btn btn-dark github-btn">
+                            <i class="fab fa-github me-2"></i>Voir le projet sur GitHub
+                        </a>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Technologies utilisées</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                            <img src="images/logo_symfony.png" alt="Symfony" class="img-fluid" style="width: 80px; height: 80px;">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProjet" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
+                        <p class="text-center mt-3 small">L'application a été développée avec Symfony 6 (PHP) pour le backend, PostgreSQL pour la base de données, et intègre des éléments JavaScript pour l'interactivité côté client.</p>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Compétences mobilisées</h4>
+                        
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <div class="competence-badge assistance-incident w-100">Répondre aux incidents et aux demandes</div>
+                            <div class="competence-badge developper-presence w-100">Développer la présence en ligne</div>
+                            <div class="competence-badge mode-projet w-100">Travailler en mode projet</div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="small">Ce projet mobilise trois compétences principales du référentiel BTS SIO, notamment autour de la gestion de projet, le développement d'application web, et la réponse aux besoins des différents utilisateurs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-3">
+                        <h4 class="mb-3 text-center">Période de réalisation</h4>
+                        <p class="text-center"><i class="far fa-calendar-alt me-2"></i>Octobre 2023 - Mars 2024</p>
+                        <div class="text-center mt-3">
+                            <a href="../../../projets.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour aux projets
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     
-    <footer class="py-4 bg-dark text-white text-center mt-auto">
+    <!-- Footer -->
+    <footer class="mt-auto" id="footer">
         <div class="container">
-            <p>© 2024 Mon Portfolio. Tous droits réservés.</p>
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Hugo Amiot Magne</h5>
+                    <p>Développeur Web & Étudiant en BTS SIO</p>
+                    <p class="mb-1">Portfolio professionnel présentant mon parcours et mes compétences en développement web et mobile.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../../../index.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Accueil</a></li>
+                        <li class="mb-2"><a href="../../../projets.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Projets</a></li>
+                        <li class="mb-2"><a href="../../../parcourscolaire.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Parcours</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Retrouvez-moi</h5>
+                    <div class="social-icons mb-3">
+                        <a href="https://github.com/HugoAmiotMagne" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:hugo463324@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="text-center mb-0">© 2024 Hugo Amiot Magne. Tous droits réservés.</p>
         </div>
     </footer>
     
