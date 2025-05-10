@@ -94,6 +94,49 @@
             background: var(--primary-color);
         }
 
+        /* Styles ajoutés pour les compétences */
+        .competence-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .dev-pro {
+            background-color: #cce5ff;
+            border: 1px solid #b8daff;
+        }
+        
+        .realisation-item {
+            border-left: 4px solid #28a745;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .realisation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
@@ -154,10 +197,85 @@
 
     <main class="flex-shrink-0 py-5">
         <div class="container">
-            <h2 class="section-title">Ma veille informationnelle</h2>
-            <p class="text-center mb-4">Document présentant ma démarche de veille technologique et son application dans mon parcours professionnel.</p>
-            <div class="card p-3 mb-4">
-                <iframe src="veille-informationnelle.pdf"></iframe>
+            <div class="row">
+                <!-- Colonne principale -->
+                <div class="col-lg-8">
+                    <h2 class="section-title">Ma veille informationnelle</h2>
+                    <p class="text-center mb-4">Document présentant ma démarche de veille technologique sur la sécurisation des sites web et son application dans mon parcours professionnel.</p>
+                    
+                    <div class="card p-3 mb-4">
+                        <iframe src="veille-informationnelle.pdf"></iframe>
+                    </div>
+                    
+                    <div class="realisation-item">
+                        <h4><i class="fas fa-search me-2 text-primary"></i>Mise en œuvre de la veille technologique</h4>
+                        <p>Démarche structurée de collecte et d'analyse d'informations sur la sécurisation des sites web, un domaine en constante évolution nécessitant une actualisation régulière des connaissances.</p>
+                        <h5>Compétences mobilisées :</h5>
+                        <div>
+                            <span class="competence-badge dev-pro">Organiser son développement professionnel</span>
+                        </div>
+                        <ul class="mt-2">
+                            <li><strong>Mettre en place son environnement d'apprentissage personnel</strong> : Création d'un écosystème de sources fiables et diversifiées permettant une veille efficace sur la sécurité web.</li>
+                            <li><strong>Mettre en œuvre des outils et stratégies de veille informationnelle</strong> : Utilisation d'alertes Google, abonnements à des newsletters spécialisées et suivi d'experts sur les réseaux sociaux.</li>
+                            <li><strong>Gérer son identité professionnelle</strong> : Développement d'une expertise dans un domaine spécifique contribuant à la construction d'une identité professionnelle spécialisée.</li>
+                            <li><strong>Développer son projet professionnel</strong> : Acquisition de connaissances dans un secteur à forte demande, aligné avec mes objectifs de carrière en développement web sécurisé.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="realisation-item">
+                        <h4><i class="fas fa-shield-alt me-2 text-primary"></i>Application des connaissances de la veille</h4>
+                        <p>Les éléments recueillis lors de ma veille permettent d'identifier les bonnes pratiques et les technologies émergentes en matière de sécurité web.</p>
+                        <h5>Points clés mis en évidence par la veille :</h5>
+                        <ul class="mt-2">
+                            <li>Importance cruciale des certificats HTTPS pour sécuriser les échanges de données</li>
+                            <li>Nécessité de protéger les mots de passe avec des algorithmes de hachage appropriés</li>
+                            <li>Mises à jour régulières des CMS et extensions pour prévenir les failles de sécurité</li>
+                            <li>Validation rigoureuse des formulaires pour prévenir les injections SQL et attaques XSS</li>
+                            <li>Création de sauvegardes régulières pour permettre une récupération rapide en cas d'incident</li>
+                            <li>Vigilance face à l'augmentation des attaques DDoS qui nécessitent des protections spécifiques</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Colonne droite -->
+                <div class="col-lg-4">
+                    <div class="card p-3">
+                        <h4 class="mb-3 text-center">Compétences mobilisées</h4>
+                        
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <div class="competence-badge dev-pro w-100">Organiser son développement professionnel</div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="mb-2">Cette veille technologique me permet de :</p>
+                            <ul>
+                                <li>Rester informé des évolutions constantes dans le domaine de la sécurité web</li>
+                                <li>Enrichir mes compétences techniques pour une meilleure employabilité</li>
+                                <li>Anticiper les tendances et besoins futurs du marché</li>
+                                <li>Développer un esprit critique face aux solutions de sécurité proposées</li>
+                            </ul>
+                            <p>La sécurisation des sites web représente un enjeu majeur pour les organisations, avec plus de 330 000 cyberattaques réussies sur des entreprises en 2023 et 3.5 millions de postes à pourvoir dans la cybersécurité au niveau mondial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-3">
+                        <h4 class="mb-3 text-center">Sources & Outils utilisés</h4>
+                        <p><i class="fas fa-globe me-2"></i><strong>Sites spécialisés :</strong></p>
+                        <p>ANSSI, Zataz.com, Silicon.fr, Infosécurité, L'usine Digitale, NextGov, Dark reading</p>
+                        
+                        <p><i class="fas fa-users me-2"></i><strong>Communautés :</strong></p>
+                        <p>Root Me, Reddit, Hack Forums</p>
+                        
+                        <p><i class="fas fa-tools me-2"></i><strong>Outils de veille :</strong></p>
+                        <p>Alertes Google, Twitter/X, Newsletters spécialisées</p>
+                        
+                        <div class="text-center mt-3">
+                            <a href="../../../projets.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour aux projets
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
