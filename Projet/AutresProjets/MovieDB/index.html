@@ -3,11 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet - Détails</title>
+    <title>Projet MovieDB - Détails</title>
+    <meta name="description" content="Détails du projet MovieDB développé en Java - Application Android de gestion de films et séries - Portfolio de Hugo Amiot Magne">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #495057;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Navigation styling */
+        .navbar {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand .logo-accent {
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover:before, .nav-link.active:before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
         .carousel-item img {
             height: 400px; 
             width: 100%; 
@@ -26,18 +88,151 @@
             height: 60px;
             font-size: 1.2rem;
         }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .realisations {
+            margin-top: 30px;
+        }
+        
+        .realisation-item {
+            border-left: 4px solid #28a745;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .realisation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .competence-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .developper-presence {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        .service-info {
+            background-color: #e2e3e5;
+            border: 1px solid #d6d8db;
+        }
+        
+        .dev-pro {
+            background-color: #cce5ff;
+            border: 1px solid #b8daff;
+        }
+
+        .repondre-incidents {
+            background-color: #d1e7dd;
+            border: 1px solid #badbcc;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Style pour mobile */
+        @media (max-width: 768px) {
+            .realisation-item {
+                padding: 15px 10px;
+            }
+            
+            .competence-badge {
+                margin: 3px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
     
 </head>
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="fas fa-code me-2"></i>Hugo<span class="logo-accent">Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="../../../index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../projets.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html">Parcours Scolaire</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html"><i class="fas fa-home me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../../../projets.html"><i class="fas fa-project-diagram me-1"></i>Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../parcourscolaire.html"><i class="fas fa-graduation-cap me-1"></i>Parcours</a></li>
                 </ul>
             </div>
         </div>
@@ -48,58 +243,132 @@
             <div class="row">
                 <!-- Colonne gauche : Informations du projet -->
                 <div class="col-md-8">
-                    <h2 class="mb-4">Nom du Projet</h2>
-                    <p>Description détaillée du projet. Expliquez les objectifs, les fonctionnalités et les technologies utilisées.</p>
-                </div>
-                
-                <!-- Colonne droite : Langages utilisés -->
-                <div class="col-md-4">
-                    <a href="#" class="btn btn-dark btn-lg mb-4 w-100" target="_blank">
-                        <i class="fab fa-github"></i> Voir sur GitHub
-                    </a>
+                    <h2 class="mb-4 section-title">Projet MovieDB - Application Mobile</h2>
+                    <p>Conception et développement d'une application Android de gestion de films et séries dans le cadre d'un projet de BTS SIO.
+                       Cette application permet aux utilisateurs de consulter des informations détaillées sur des films et séries en utilisant
+                       une API externe pour récupérer les données. Dans ce projet en binôme, j'étais responsable de la section films
+                       et de l'intégration des données provenant de l'API.
+                    </p>
 
-                    <div class="p-3 border rounded">
-                        <h4 class="mb-3 text-center">Langages utilisés</h4>
-                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-                            <img src="images/php.png" alt="PHP" class="img-fluid" style="width: 80px; height: 80px;">
-                            <img src="images/javascript.png" alt="JavaScript" class="img-fluid" style="width: 80px; height: 80px;">
-                            <img src="images/python.png" alt="Python" class="img-fluid" style="width: 80px; height: 80px;">
+                    <h3 class="mb-4">Description du Projet</h3>
+                    <p>L'application MovieDB offre une interface intuitive permettant aux utilisateurs de parcourir une large base de données de films et séries (20 films et 20 series).
+                       Chaque élément dispose d'une fiche détaillée comprenant le synopsis, la date de sortie, les acteurs principaux, la note moyenne et une affiche.
+                       L'application est conçue avec une architecture moderne permettant une navigation fluide entre les différentes sections et une mise à jour régulière
+                       des contenus grâce à l'intégration d'une API externe. La gestion des requêtes réseau et le traitement des données JSON sont optimisés pour
+                       garantir une expérience utilisateur réactive même avec une connexion internet limitée.
+                    </p>
+                    
+                    <div class="realisation-item mt-4">
+                        <h4><i class="fas fa-tasks me-2 text-primary"></i>Réalisation de l'Application</h4>
+                        <p>Ce projet a été développé en collaboration avec un autre étudiant et a nécessité plusieurs étapes de conception et développement:</p>
+                        
+                        <ul class="mt-3">
+                            <li><strong>Analyse des besoins</strong> : définition des fonctionnalités principales et de l'expérience utilisateur cible</li>
+                            <li><strong>Maquettage</strong> : création des wireframes et design de l'interface utilisateur</li>
+                            <li><strong>Développement Android</strong> : programmation en Java avec Android Studio</li>
+                            <li><strong>Intégration de l'API</strong> : implémentation des requêtes HTTP pour récupérer les données des films</li>
+                            <li><strong>Traitement des données</strong> : parsing des réponses JSON et stockage dans des modèles adaptés</li>
+                            <li><strong>Développement de l'interface</strong> : création des écrans, listes et fiches détaillées des films</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Compétences mobilisées :</h5>
+                        <div>
+                            <span class="competence-badge repondre-incidents">Répondre aux incidents et aux demandes d'assistance</span>
+                            <span class="competence-badge developper-presence">Développer la présence en ligne de l'organisation</span>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p><strong>Répondre aux incidents et aux demandes d'assistance et d'évolution :</strong></p>
+                            <ul>
+                                <li>Collecte et suivi des demandes utilisateurs pendant les phases de test de l'application</li>
+                                <li>Traitement des demandes concernant les services réseau et système pour optimiser les requêtes API</li>
+                                <li>Mise en place de solutions pour les problèmes applicatifs rencontrés pendant le développement</li>
+                                <li>Documentation des procédures de résolution pour faciliter la maintenance future</li>
+                            </ul>
+                            
+                            <p><strong>Développer la présence en ligne de l'organisation :</strong></p>
+                            <ul>
+                                <li>Participation à la valorisation de l'image numérique en créant une interface utilisateur</li>
+                                <li>Référencement des services en ligne à travers l'organisation efficace des données de films et séries</li>
+                                <li>Développement d'une application exploitant les données externes d'une API</li>
+                                <li>Mise en place de bonnes pratiques pour l'affichage et la manipulation des données multimédia</li>
+                            </ul>
                         </div>
                     </div>
+                    
                 </div>
-            </div>
-            
-            <!-- Carrousel d'images du projet -->
-            <div class="row mt-5">
-                <div class="col-12">
-                    <h3 class="text-center mb-4">Aperçu du Projet</h3>
-                    <div id="carouselProjet" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/projet1.jpg" class="d-block w-100" alt="Aperçu 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/projet2.jpg" class="d-block w-100" alt="Aperçu 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/projet3.jpg" class="d-block w-100" alt="Aperçu 3">
-                            </div>
+                
+                <!-- Colonne droite : Technologies utilisées et résumé des compétences -->
+                <div class="col-md-4">
+                    <!-- Bouton GitHub -->
+                    <div class="card p-3 mb-4">
+                        <a href="https://github.com/HugoAmiotMagne/MovieDB" class="btn btn-dark github-btn">
+                            <i class="fab fa-github me-2"></i>Voir le projet sur GitHub
+                        </a>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Technologies utilisées</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                            <img src="images/logo_java.png" alt="Java" class="img-fluid" style="width: 80px; height: 80px;">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProjet" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
+                    </div>
+                    
+                    <div class="card p-3 mb-4">
+                        <h4 class="mb-3 text-center">Compétences mobilisées</h4>
+                        
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <div class="competence-badge repondre-incidents w-100">Répondre aux incidents et aux demandes</div>
+                            <div class="competence-badge developper-presence w-100">Développer la présence en ligne</div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="small">Ce projet mobilise principalement les compétences liées au développement mobile, à l'intégration de services externes et à la gestion des données multimédias.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-3">
+                        <h4 class="mb-3 text-center">Période de réalisation</h4>
+                        <p class="text-center"><i class="far fa-calendar-alt me-2"></i>1er semestre 2024</p>
+                        <div class="text-center mt-3">
+                            <a href="../../../projets.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour aux projets
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     
-    <footer class="py-4 bg-dark text-white text-center mt-auto">
+    <!-- Footer -->
+    <footer class="mt-auto" id="footer">
         <div class="container">
-            <p>© 2024 Mon Portfolio. Tous droits réservés.</p>
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Hugo Amiot Magne</h5>
+                    <p>Développeur Web & Étudiant en BTS SIO</p>
+                    <p class="mb-1">Portfolio professionnel présentant mon parcours et mes compétences en développement web.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../../../index.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Accueil</a></li>
+                        <li class="mb-2"><a href="../../../projets.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Projets</a></li>
+                        <li class="mb-2"><a href="../../../parcourscolaire.html" class="footer-contact"><i class="fas fa-chevron-right me-2"></i>Parcours</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Retrouvez-moi</h5>
+                    <div class="social-icons mb-3">
+                        <a href="https://github.com/HugoAmiotMagne" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:hugo463324@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="text-center mb-0">© 2024 Hugo Amiot Magne. Tous droits réservés.</p>
         </div>
     </footer>
     
